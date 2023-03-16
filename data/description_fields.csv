@@ -1,0 +1,164 @@
+field name NL;field name EN;datatype;description;Interpreted_measured_characteristic_administrative;Category
+vondstnummer;find_number;Text;Find number;administrative;generic
+project_code;project_code_location;Text;Project code (Location);administrative;generic
+categorie;material_category;Text;Material category;characteristic;generic
+subcategorie;material;Text;Material;characteristic;generic
+gewicht;weight_in_grams;Double;Weight in grams;measurement;generic
+object;object_name;Text;Object name;characteristic;generic
+objectdeel;object_part;Text;Object part;characteristic;generic
+fragmenten;number_of_fragments;Long;Number of fragments;measurement;generic
+past_aan_hoort_bij;fits_or_belongs_to_find_numbers;Memo;Fits or belongs to find number(s);characteristic;generic
+begin_dat;start_date;Long;Start date;interpretation;generic
+eind_dat;end_date;Long;End date;interpretation;generic
+put;trench_number;Text;Trench number;administrative;generic
+vlak;level_number;Text;Level number;administrative;generic
+spoor;feature_number;Text;Feature number;administrative;generic
+vak;section_number;Text;Section number;administrative;generic
+vlak_min;minimum_level_height;Double;Minimum level height;measurement;generic
+vlak_max;maximum_level_height;Double;Maximum level height;measurement;generic
+trefwoorden;keywords_photographed_finds_only;Memo;Keywords (photographed finds only);administrative;generic
+niveau1;level_1_of_the_functional_classification;Memo;Level 1 of the functional classification;interpretation;generic
+niveau2;level_2_of_the_functional_classification;Memo;Level 2 of the functional classification;interpretation;generic
+niveau3;level_3_of_the_functional_classification;Memo;Level 3 of the functional classification;interpretation;generic
+niveau4;level_4_of_the_functional_classification;Memo;Level 4 of the functional classification;interpretation;generic
+website;on_website;Boolean;On website (1=Yes, 0=No);administrative;generic
+aardewerk_ds_type;ceramics_deventer_system_code;Text;Ceramics: Deventer system code;interpretation;CER
+aardewerk_eve_rand;ceramics_rim_eve_estimated_vessel_equivalent;Double;Ceramics: rim-EVE (Estimated vessel equivalent);measurement;CER
+aardewerk_eve_bodem;ceramics_base_eve_estimated_vessel_equivalent;Double;Ceramics: base-EVE (Estimated vessel equivalent);measurement;CER
+aardewerk_herkomst;ceramics_location_of_production;Text;Ceramics: Location of production;interpretation;CER
+aardewerk_object_diameter_mm;ceramics_reconstructed_object_diameter_in_mm;Double;Ceramics: (reconstructed) object diameter in mm;measurement;CER
+aardewerk_object_hoogte_mm;ceramics_reconstructed_object_height_in_mm;Double;Ceramics: (reconstructed) object heigth diameter in mm;measurement;CER
+aardewerk_fragm_lengte_mm;ceramics_fragment_length_in_mm;Double;Ceramics: Fragment length in mm;measurement;CER
+aardewerk_fragm_breedte_mm;ceramics_fragment_width_in_mm;Double;Ceramics: Fragment width in mm;measurement;CER
+aardewerk_fragm_hoogte_mm;ceramics_fragment_height_in_mm;Double;Ceramics: Fragment height in mm;measurement;CER
+aardewerk_opp_behandeling;ceramics_surface_treatment;Text;Ceramics: Surface treatment;characteristic;CER
+aardewerk_decoratietechniek;ceramics_decoration_technique;Text;Ceramics: Decoration technique;characteristic;CER
+aardewerk_decorgroepen;ceramics_image_type;Text;Ceramics: Image type;interpretation;CER
+aardewerk_merk;ceramics_mark;Text;Ceramics: Mark;characteristic;CER
+blankewapens_totale_lengte_mm;hilted_weapons_total_length_in_mm;Long;Hilted weapons: Total length in mm;measurement;MTL
+blankewapens_type_lemmet;hilted_weapons_blade_type;Text;Hilted weapons: Blade type;characteristic;MTL
+blankewapens_type_klingvanger;hilted_weapons_blade_catcher_type;Text;Hilted weapons: Blade catcher type;characteristic;MTL
+blankewapens_type_heft;hilted_weapons_grip_type;Text;Hilted weapons: Grip type;characteristic;MTL
+blankewapens_materiaal_heft;hilted_weapons_grip_material;Text;Hilted weapons: Grip material;characteristic;MTL
+blankewapens_type_heftbekroning;hilted_weapons_pommel_cap_type;Text;Hilted weapons: Pommel cap type;characteristic;MTL
+blankewapens_productiemerk;hilted_weapons_production_mark;Text;Hilted weapons: Production mark;characteristic;MTL
+bouwmaterialen_kleur;building_material_colour;Text;Building material: Colour;characteristic;BWM
+bouwmaterialen_grootstelengte_mm;building_material_greatest_length_in_mm;Double;Building material: Greatest length in mm;measurement;BWM
+bouwmaterialen_grootstebreedte_mm;building_material_greatest_width_in_mm;Double;Building material: Greatest width in mm;measurement;BWM
+bouwmaterialen_grootstedikte_mm;building_material_greatest_thickness_in_mm;Double;Building material: Greatest thickness in mm;measurement;BWM
+bouwmaterialen_productiecentrum;building_material_production_centre;Text;Building material: Production centre;interpretation;BWM
+bouwmaterialen_afbeelding;building_material_image_type;Text;Building material: Image type;interpretation;BWM
+bouwmaterialen_oppervlakte;building_material_surface_treatment;Text;Building material: Surface treatment;characteristic;BWM
+fauna_soort;fauna_species;Text;Fauna: Species;characteristic;FAU
+fauna_element;fauna_element;Text;Fauna: Element;characteristic;FAU
+fauna_lengte_mm;fauna_length_in_mm;Double;Fauna: Length in mm;measurement;FAU
+fauna_breedte_mm;fauna_width_in_mm;Double;Fauna: Width in mm;measurement;FAU
+fauna_hoogte_mm;fauna_height_in_mm;Double;Fauna: Height in mm;measurement;FAU
+glas_ds_type;glass_deventer_system_code;Text;Glass: Deventer system code;interpretation;GLS
+glas_kleur;glass_colour;Text;Glass: Colour;characteristic;GLS
+glas_herkomst;glass_location_of_production;Text;Glass: Location of production;interpretation;GLS
+glas_eve_rand;glass_rim_eve_estimated_vessel_equivalent;Double;Glass: rim-EVE (Estimated vessel equivalent);measurement;GLS
+glas_eve_bodem;glass_base_eve_estimated_vessel_equivalent;Long;Glass: base-EVE (Estimated vessel equivalent);measurement;GLS
+glas_object_diameter_mm;glass_reconstructed_object_diameter_in_mm;Double;Glass: (reconstructed) object diameter in mm;measurement;GLS
+glas_object_hoogte_mm;glass_reconstructed_object_height_in_mm;Double;Glass: (reconstructed) object height in mm;measurement;GLS
+glas_fragm_lengte_mm;glass_fragment_length_in_mm;Double;Glass: Fragment length in mm;measurement;GLS
+glas_fragm_breedte_mm;glass_fragment_width_in_mm;Double;Glass: Fragment width in mm;measurement;GLS
+glas_fragm_hoogte_mm;glass_fragment_height_in_mm;Double;Glass: Fragment height in mm;measurement;GLS
+glas_fragm_dikte_mm;glass_fragment_thickness_in_mm;Double;Glass: Fragment thickness in mm;measurement;GLS
+glas_decoratie;glass_decoration;Text;Glass: Decoration;characteristic;GLS
+glas_merk;glass_mark;Text;Glass: Mark;characteristic;GLS
+hout_deelmaterialen;wood_secondary_material;Text;Wood: Secondary material;characteristic;HT
+hout_grootstelengte_mm;wood_greatest_length_in_mm;Double;Wood: Greatest length in mm;measurement;HT
+hout_grootstebreedte_mm;wood_greatest_width_in_mm;Double;Wood: Greatest width in mm;measurement;HT
+hout_grootstehoogte_mm;wood_greatest_height_in_mm;Double;Wood: Greatest height in mm;measurement;HT
+hout_grootstedikte_mm;wood_greatest_thickness_in_mm;Double;Wood: Greatest thickness in mm;measurement;HT
+hout_diameter_mm;wood_diameter_in_mm;Double;Wood: Diameter in mm;measurement;HT
+hout_productiewijze;wood_production_method;Text;Wood: Production method;characteristic;HT
+kunststof_deelmaterialen;synthetics_secondary_material;Text;Synthetics: Secondary material;characteristic;KST
+kunststof_grootstelengte_mm;synthetics_greatest_length_in_mm;Double;Synthetics: Greatest length in mm;measurement;KST
+kunststof_grootstebreedte_mm;synthetics_greatest_width_in_mm;Double;Synthetics: Greatest width in mm;measurement;KST
+kunststof_grootstehoogte_mm;synthetics_greatest_height_in_mm;Double;Synthetics: Greatest height in mm;measurement;KST
+kunststof_diameter_mm;synthetics_diameter_in_mm;Double;Synthetics: Diameter in mm;measurement;KST
+kunststof_productiecentrum;synthetics_production_centre;Text;Synthetics: Production centre;interpretation;KST
+kunststof_eigenaar;synthetics_owner;Text;Synthetics: Owner;interpretation;KST
+kunststof_merk;synthetics_mark;Text;Synthetics: Mark;characteristic;KST
+kunststof_type;synthetics_type;Text;Synthetics: Type;characteristic;KST
+kunststof_eenheid_waarde;synthetics_unit_value;Text;Synthetics: Unit/value;interpretation;KST
+leer_archeologischobjecttype;leather_type;Text;Leather: Type;characteristic;LEE
+leer_deelmaterialen;leather_secondary_material;Text;Leather: Secondary material;characteristic;LEE
+leer_versiering;leather_decoration_technique;Text;Leather: Decoration technique;characteristic;LEE
+leer_leersoort;leather_leather_type;Text;Leather: Leather type;characteristic;LEE
+leer_grootste_lengte_mm;leather_greatest_length_in_mm;Double;Leather: Greatest length in mm;measurement;LEE
+leer_grootste_breedte_mm;leather_greatest_width_in_mm;Double;Leather: Greatest width in mm;measurement;LEE
+leer_grootste_hoogte_mm;leather_greatest_height_in_mm;Double;Leather: Greatest height in mm;measurement;LEE
+messen_angel_of_plaatangel;knives_whittle_tang_or_scale_tang;Text;Knives: Whittle tang or scale tang;characteristic;MTL
+messen_heft_mat_1;knives_hilt_material;Text;Knives: Hilt material;characteristic;MTL
+messen_lemmet_lengte;knives_blade_length_in_mm;Double;Knives: Blade length in mm;measurement;MTL
+messen_heft_lengte;knives_hilt_length_in_mm;Double;Knives: Hilt length in mm;measurement;MTL
+messen_minimale_totale_lengte;knives_greatest_length;Double;Knives: Greatest length;measurement;MTL
+messen_minimale_totale_breedte;knives_greatest_width;Double;Knives: Greatest width;measurement;MTL
+metaal_deelmaterialen;metal_secondary_material;Text;Metal: Secondary material;characteristic;MTL
+metaal_grootstelengte_mm;metal_greatest_length_in_mm;Double;Metal: Greatest length in mm;measurement;MTL
+metaal_grootstebreedte_mm;metal_greatest_width_in_mm;Double;Metal: Greatest width in mm;measurement;MTL
+metaal_grootstehoogte_mm;metal_greatest_height_in_mm;Double;Metal: Greatest height in mm;measurement;MTL
+metaal_grootstedikte_mm;metal_greatest_thickness_in_mm;Double;Metal: Greatest thickness in mm;measurement;MTL
+metaal_diameter_mm;metal_diameter_in_mm;Double;Metal: Diameter in mm;measurement;MTL
+metaal_productiecentrum;metal_production_centre;Text;Metal: Production centre;interpretation;MTL
+mix_grootstelengte_mm;mixed_greatest_length_in_mm;Double;Mixed: Greatest length in mm;measurement;MIX
+mix_grootstebreedte_mm;mixed_greatest_width_in_mm;Double;Mixed: Greatest width in mm;measurement;MIX
+mix_grootstehoogte_mm;mixed_greatest_height_in_mm;Double;Mixed: Greatest height in mm;measurement;MIX
+mix_grootstedikte_mm;mixed_greatest_thickness_in_mm;Double;Mixed: Greatest thickness in mm;measurement;MIX
+mix_diameter_mm;mixed_diameter_in_mm;Double;Mixed: Diameter in mm;measurement;MIX
+munt_land_geografisch;coins_country_geographical;Text;Coins: Country (geographical);characteristic;Mat: MTL AND Object_name: coin
+munt_staat_politieke_eenheid;coins_political_entity;Text;Coins: Political entity;characteristic;Mat: MTL AND Object_name: coin
+munt_autoriteit_politiek;coins_authority;Text;Coins: Authority;characteristic;Mat: MTL AND Object_name: coin
+munt_muntsoort;coins_coin_type;Text;Coins: Coin type;characteristic;Mat: MTL AND Object_name: coin
+munt_eenheid_waarde;coins_denomination_value;Text;Coins: Denomination/value;characteristic;Mat: MTL AND Object_name: coin
+munt_ontwerper;coins_designer;Text;Coins: Designer;characteristic;Mat: MTL AND Object_name: coin
+munt_onderwerp_gelegenheid;coins_subject_or_occasion;Text;Coins: Subject or occasion;interpretation;Mat: MTL AND Object_name: coin
+munt_muntplaats_productieplaats;coins_location_of_production;Text;Coins: Location of production;interpretation;Mat: MTL AND Object_name: coin
+munt_lengte_diameter_in_mm;coins_diameter_in_mm;Double;Coins: Diameter in mm;measurement;Mat: MTL AND Object_name: coin
+munt_breedte_in_mm;coins_width_in_mm;Double;Coins: Width in mm;measurement;Mat: MTL AND Object_name: coin
+natuursteen_subsoort;natural_stone_sub_type;Text;Natural stone: Sub type;characteristic;STN
+natuursteen_grootstelengte_mm;natural_stone_greatest_length_in_mm;Double;Natural stone: Greatest length in mm;measurement;STN
+natuursteen_grootstebreedte_mm;natural_stone_greatest_width_in_mm;Double;Natural stone: Greatest width in mm;measurement;STN
+natuursteen_grootstehoogte_mm;natural_stone_greatest_height_in_mm;Double;Natural stone: Greatest height in mm;measurement;STN
+natuursteen_grootstedikte_mm;natural_stone_greatest_thickness_in_mm;Double;Natural stone: Greatest thickness in mm;measurement;STN
+natuursteen_diameter_mm;natural_stone_diameter_in_mm;Double;Natural stone: Diameter in mm;measurement;STN
+natuursteen_productiesporen;natural_stone_production_marks;Text;Natural stone: Production marks;characteristic;STN
+plant_soort;botanical_species;Text;Botanical: Species;characteristic;PLT
+plant_grootstelengte_mm;botanical_greatest_length_in_mm;Double;Botanical: Greatest length in mm;measurement;PLT
+plant_grootstebreedte_mm;botanical_greatest_width_in_mm;Double;Botanical: Greatest width in mm;measurement;PLT
+plant_grootstehoogte_mm;botanical_greatest_height_in_mm;Double;Botanical: Greatest height in mm;measurement;PLT
+plant_grootstedikte_mm;botanical_greatest_thickness_in_mm;Double;Botanical: Greatest thickness in mm;measurement;PLT
+plant_diameter_mm;botanical_diameter_in_mm;Double;Botanical: Diameter in mm;measurement;PLT
+rookpijpen_model;pipes_model;Text;Pipes: Model;characteristic;CPY
+rookpijpen_zijmerk_links;pipes_mark_on_side_of_bowl_left;Text;Pipes: Mark on side of bowl - left;characteristic;CPY
+rookpijpen_zijmerk_rechts;pipes_mark_on_side_of_bowl_right;Text;Pipes: Mark on side of bowl - right;characteristic;CPY
+rookpijpen_bijmerk_links;pipes_mark_on_base_of_heel_left;Text;Pipes: Mark on base of heel - left;characteristic;CPY
+rookpijpen_bijmerk_rechts;pipes_mark_on_base_of_heel_right;Text;Pipes: Mark on base of heel - right;characteristic;CPY
+rookpijpen_merk_of_hielmerk;pipes_mark_or_mark_on_base_of_heel;Text;Pipes: Mark or mark on base of heel;characteristic;CPY
+rookpijpen_oppervlaktebehandeling_kop;pipes_surface_treatment_bowl;Text;Pipes: Surface treatment bowl;characteristic;CPY
+rookpijpen_kopopening;pipes_bowl_opening;Text;Pipes: Bowl opening;characteristic;CPY
+rookpijpen_radering;pipes_milling;Text;Pipes: Milling;characteristic;CPY
+rookpijpen_steelbehandeling;pipes_stem_treatment;Text;Pipes: Stem treatment;characteristic;CPY
+rookpijpen_kwaliteit;pipes_quality;Text;Pipes: Quality;characteristic;CPY
+rookpijpen_productiecentrum;pipes_production_centre;Text;Pipes: Production centre;interpretation;CPY
+rookpijpen_pijpenmaker;pipes_pipe_maker;Text;Pipes: Pipe maker;characteristic;CPY
+sculpturen_baksel;sculptures_fabric;Text;Sculptures: Fabric;characteristic;KSC
+sculpturen_hoogte_mm;sculptures_height_in_mm;Long;Sculptures: Height in mm;measurement;KSC
+sculpturen_breedte_mm;sculptures_width_in_mm;Long;Sculptures: Width in mm;measurement;KSC
+sculpturen_diepte_mm;sculptures_depth_in_mm;Long;Sculptures: Depth in mm;measurement;KSC
+sculpturen_hol_of_massief;sculptures_hollow_or_solid;Text;Sculptures: Hollow or solid;characteristic;KSC
+sculpturen_voorstelling;sculptures_image_description;Text;Sculptures: Image description;characteristic;KSC
+textiel_deelmaterialen;textile_secondary_material;Text;Textile: Secondary material;characteristic;TXT
+textiel_grootstelengte_mm;textile_greatest_length_in_mm;Double;Textile: Greatest length in mm;measurement;TXT
+textiel_grootstebreedte_mm;textile_greatest_width_in_mm;Double;Textile: Greatest width in mm;measurement;TXT
+textiel_productiewijze;textile_production_method;Text;Textile: Production method;characteristic;TXT
+textiel_binding;textile_binding;Text;Textile: Binding;characteristic;TXT
+textiel_bewerking;textile_processing;Text;Textile: Processing;characteristic;TXT
+touw_grootstelengte_mm;rope_greatest_length_in_mm;Double;Rope: Greatest length in mm;measurement;TW
+touw_grootstebreedte_mm;rope_greatest_width_in_mm;Double;Rope: Greatest width in mm;measurement;TW
+touw_diameter_mm;rope_diameter_in_mm;Double;Rope: Diameter in mm;measurement;TW
+touw_strengen;rope_number_of_strands;Long;Rope: Number of strands;measurement;TW
+touw_productiewijze;rope_production_method;Text;Rope: Production method;characteristic;TW
