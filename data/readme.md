@@ -3,7 +3,7 @@ For the deep learning training that is going to organized on the [3rd of April 2
 
 The data can be downloaded as csv file [here](https://belowthesurface.amsterdam/en/pagina/publicaties-en-datasets)
 
-To make the dataset suitable for an English Audience the column names have been translated from Dutch. This was done using a Postgres database with the following [SQL script](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/data/import_translate_column_names.sql).
+To make the dataset suitable for an English Audience the column names have been translated from Dutch. This was done using a Postgres database with the following [SQL script](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/import_translate_column_names.sql).
 
 # Subsets
 Based on an explorative analysis of the dataset three subsets have been created. The various fields in the dataset have been assessed by Maurice de Kleijn based on his domain knowledge of archaeological research.
@@ -13,7 +13,7 @@ First every field was assessed and classified to the following categories:
   - Characteristic (characteristics of the object which does not necessaryly be done by an expert, like color or type of blade, decoration technique)
   - Interpretation (Classification by an expert preferably to a reference collection / typochronology) 
  
- The classification was done on [this file](https://statics.belowthesurface.amsterdam/downloadbare-datasets/Data_fields_description.xlsx) from the project. The results can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/data/description_fields.csv).
+ The classification was done on [this file](https://statics.belowthesurface.amsterdam/downloadbare-datasets/Data_fields_description.xlsx) from the project. The results can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/description_fields.csv).
   
  *Note that the distinction between Characteristic and Interpretation is a bit arbitrary*
 
@@ -65,7 +65,7 @@ and maybe minimum_level_height & maximum_level_height .
 
 Can predict **ceramics_deventer_system_code**, which is used to determine **start_date** and **end_date**. The [Deventer System Code](https://www.deventersysteem.nl/about-the-deventer-system-596e3e51-809c-4aa0-bf2f-d12e9adace06) is a Dutch classification system for medieval and post-medieval ceramics and glass. 
 
-The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/data/subset_ceramics.csv)
+The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_ceramics.csv)
 
 
 ## Glass
@@ -115,7 +115,7 @@ and maybe minimum_level_height & maximum_level_height .
 
 Can predict **glass_deventer_system_code** from which it could get information about the dating. 
 
-The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/data/subset_glass.csv)
+The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_glass.csv)
 
 ## Clay Pipes (for smoking tobacco)
 
@@ -172,7 +172,7 @@ and maybe minimum_level_height & maximum_level_height .
 
 Can predict **pipes_model** from which it could get information about the pipe maker and the dating. 
 
-The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/data/subset_pipes.csv)
+The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_pipes.csv)
 
 ## Knives & Metal
 We might consider to look at metal knives as well, but will do the at a later stage.
