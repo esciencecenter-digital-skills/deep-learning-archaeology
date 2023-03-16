@@ -65,7 +65,7 @@ and maybe minimum_level_height & maximum_level_height .
 
 Can predict **ceramics_deventer_system_code**, which is used to determine **start_date** and **end_date**. The [Deventer System Code](https://www.deventersysteem.nl/about-the-deventer-system-596e3e51-809c-4aa0-bf2f-d12e9adace06) is a Dutch classification system for medieval and post-medieval ceramics and glass. 
 
-The subset can be found here: 
+The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/data/subset_ceramics.csv)
 
 
 ## Glass
@@ -114,6 +114,8 @@ Just like Ceramics, we want to explore if
 and maybe minimum_level_height & maximum_level_height . 
 
 Can predict **glass_deventer_system_code** from which it could get information about the dating. 
+
+The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/data/subset_glass.csv)
 
 ## Clay Pipes (for smoking tobacco)
 
@@ -169,6 +171,8 @@ We wonder whether
 and maybe minimum_level_height & maximum_level_height . 
 
 Can predict **pipes_model** from which it could get information about the pipe maker and the dating. 
+
+The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/data/subset_pipes.csv)
 
 ## Knives & Metal
 We might consider to look at metal knives as well, but will do the at a later stage.
