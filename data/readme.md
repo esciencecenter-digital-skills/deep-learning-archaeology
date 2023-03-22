@@ -74,6 +74,11 @@ The subset can be found [here](https://github.com/esciencecenter-digital-skills/
 
 
 
+
+
+
+
+
 # Other categories
 
 We did consider to look at other material categories as well, but decided to stick with Ceramics only. Yet, the ideas below could in theory be explored at a later stage.
