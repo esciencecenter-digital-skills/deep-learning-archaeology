@@ -70,7 +70,7 @@ The core idea for the deep learning tutorial is that
 
 Can predict whether something is categorized as "Food consumption: plate, dish, bowl" or "Food consumption: drinking" in the field **level_2_of_the_functional_classification**
 
-The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_ceramics.csv)
+The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_ceramics_v21032023.csv)
 
 
 
