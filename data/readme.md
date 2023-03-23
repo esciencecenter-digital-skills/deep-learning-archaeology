@@ -18,9 +18,8 @@ The classification was done on [this file](https://statics.belowthesurface.amste
 
 # Part I 
 
-To adapt the introduction to Deep Learning workshop part 1 for the archaeological domain we looked at ceramics. 
+To adapt the introduction to Deep Learning workshop part I ("Classification by a Neural Network using Keras") for the archaeological domain we looked at ceramics. 
 
-## Ceramics
 Since the first part of the deeplearning workshop aims to automatically categorize data based on a variety of characteristics we decided to look at ceramics and see if we can train a neural network that distinguishes ceramics that are cateogorized as "plate, dish, bowl" from ceramics that are categorized as "drinking" based on non interpreted measurements on the dimensions (i.e. height and width), surface treatment and type of material. We thus try to see if the experts could be replaced by our neural nework. 
 
 Please note, that we have simplified the question and that we the aim of this analysis is purely educational. 
@@ -77,5 +76,10 @@ Can predict whether something is categorized as "Food consumption: plate, dish, 
 The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_ceramics_v21032023.csv)
 
 
+# Part II
 
+To adapt the introduction to Deep Learning workshop part II ("Monitor the training process") to the archaeological domain, we created another subset from [the North South line excavations at the Rokin](https://belowthesurface.amsterdam/en/pagina/de-opgravingen-0). For this exercise we looked whether we could estimate the depth a certain artefact was found based on the dating. A rule of thumb in Archaeology is obviously that the deeper an artefact was found the older it dates. Of course this is not always the case since archaeological layers tend to cut each other and are rarely fully leveled. 
 
+As with most archaeological excavations not all the artefact that are found can be related to a specfic layer. Generally these artefact are assigned a very high  featurenumber that represents all finds that have been found during the excavation activities of of which the exact location is uncertain. In this particular excavation the feature_number '999' was used for these type of finds. 
+
+We looked at the following characteristics.  
