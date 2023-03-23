@@ -16,6 +16,10 @@ The classification was done on [this file](https://statics.belowthesurface.amste
   
  *Note that the distinction between Characteristic and Interpretation is a bit arbitrary*
 
+# Part I 
+
+To adapt the introduction to Deep Learning workshop part 1 for the archaeological domain we looked at ceramics. 
+
 ## Ceramics
 Since the first part of the deeplearning workshop aims to automatically categorize data based on a variety of characteristics we decided to look at ceramics and see if we can train a neural network that distinguishes ceramics that are cateogorized as "plate, dish, bowl" from ceramics that are categorized as "drinking" based on non interpreted measurements on the dimensions (i.e. height and width), surface treatment and type of material. We thus try to see if the experts could be replaced by our neural nework. 
 
@@ -75,116 +79,3 @@ The subset can be found [here](https://github.com/esciencecenter-digital-skills/
 
 
 
-
-
-
-
-# Other categories
-
-We did consider to look at other material categories as well, but decided to stick with Ceramics only. Yet, the ideas below could in theory be explored at a later stage.
-
-## Glass
-The Ceramics subset was made based on the following SQL query. 
-```sql
-SELECT 
-  find_number, 
-  material_category, 
-  material, 
-  weight_in_grams, 
-  object_name, 
-  object_part, 
-  start_date, 
-  end_date, 
-  minimum_level_height, 
-  maximum_level_height, 
-  level_1_of_the_functional_classification, 
-  level_2_of_the_functional_classification, 
-  level_3_of_the_functional_classification, 
-  level_4_of_the_functional_classification,
-  glass_deventer_system_code,
-  glass_colour,
-  glass_location_of_production,
-  glass_rim_eve_estimated_vessel_equivalent,
-  glass_base_eve_estimated_vessel_equivalent,
-  glass_reconstructed_object_diameter_in_mm,
-  glass_reconstructed_object_height_in_mm,
-  glass_decoration,
-  glass_mark
-FROM rokin_data
-WHERE material_category = 'GLS';
-```
-
-Just like Ceramics, we want to explore if
-  - material 
-  - weigth
-  - glass_colour,
-  - glass_location_of_production,
-  - glass_rim_eve_estimated_vessel_equivalent,
-  - glass_base_eve_estimated_vessel_equivalent,
-  - glass_reconstructed_object_diameter_in_mm,
-  - glass_reconstructed_object_height_in_mm,
-  - glass_decoration,
-  - glass_mark
-
-and maybe minimum_level_height & maximum_level_height . 
-
-Can predict **glass_deventer_system_code** from which it could get information about the dating. 
-
-The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_glass.csv)
-
-## Clay Pipes (for smoking tobacco)
-
-The Clay Pipe subset was made based on the following SQL query. 
-```sql
-SELECT 
-  find_number, 
-  material_category, 
-  material, 
-  weight_in_grams, 
-  object_name, 
-  object_part, 
-  start_date, 
-  end_date, 
-  minimum_level_height, 
-  maximum_level_height, 
-  level_1_of_the_functional_classification, 
-  level_2_of_the_functional_classification, 
-  level_3_of_the_functional_classification, 
-  level_4_of_the_functional_classification,
-  pipes_model,
-  pipes_mark_on_side_of_bowl_left,
-  pipes_mark_on_side_of_bowl_right,
-  pipes_mark_on_base_of_heel_left,
-  pipes_mark_on_base_of_heel_right,
-  pipes_mark_or_mark_on_base_of_heel,
-  pipes_surface_treatment_bowl,
-  pipes_bowl_opening,
-  pipes_milling,
-  pipes_stem_treatment,
-  pipes_quality,
-  pipes_production_centre,
-  pipes_pipe_maker  
-FROM rokin_data
-WHERE material_category = 'CPY';
-```
-
-We wonder whether 
- - material
- - weigth
- - pipes_mark_on_side_of_bowl_left,
- - pipes_mark_on_side_of_bowl_right,
- - pipes_mark_on_base_of_heel_left,
- - pipes_mark_on_base_of_heel_right,
- - pipes_mark_or_mark_on_base_of_heel,
- - pipes_surface_treatment_bowl,
- - pipes_bowl_opening,
- - pipes_milling,
- - pipes_stem_treatment,
- - pipes_quality,
- - material 
-  
-and maybe minimum_level_height & maximum_level_height . 
-
-Can predict **pipes_model** from which it could get information about the pipe maker and the dating. 
-
-The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_pipes.csv)
