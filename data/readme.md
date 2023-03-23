@@ -128,7 +128,7 @@ SELECT
   level_2_of_the_functional_classification,
   minimum_level_height,
   maximum_level_height,
-  (minimum_level_height+maximum_level_height)/2 AS avg_level_height -- to calculate the average height
+  (minimum_level_height+maximum_level_height)/2 AS avg_level_height -- to calculate the average height, which in this case is empty
 FROM rokin_data
 WHERE feature_number = '999'
 ;
