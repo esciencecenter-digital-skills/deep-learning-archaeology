@@ -93,7 +93,7 @@ To create the subset for objects where the level heights they from the layer the
 SELECT 
   find_number, --unique ID
   material_category,  
-  material, --this field will be used as a characteristic to train the network on
+  material, 
   feature_number,
   start_date, 
   end_date, 
@@ -120,7 +120,7 @@ To create the subset for objects that are assigned to the feature_number '999', 
 SELECT 
   find_number, --unique ID
   material_category,  
-  material, --this field will be used as a characteristic to train the network on
+  material, 
   feature_number,
   start_date, 
   end_date, 
