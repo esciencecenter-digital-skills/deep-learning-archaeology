@@ -82,41 +82,15 @@ To adapt the introduction to Deep Learning workshop part II ("Monitor the traini
 
 As with most archaeological excavations not all the artefact that are found can be related to a specfic layer. Generally these artefact are assigned a very high  featurenumber that represents all finds that have been found during the excavation activities of of which the exact location is uncertain. In this particular excavation the feature_number '999' was used for these type of finds. 
 
-For the excercise in Part II of the deep learning workshop we looked at the the type of material and dating of that material and see if these can predict the depth where it was found. We want to see whether the type of artefact, thus looking at the artefect/object (the story it tells) and the characteristics provided by the experts Material, Material Category, date_start, date_end, level_1_of_the_functional_classification, level_2_of_the_functional_classification, can estimate in at which depth it should be related to.
+For the excercise in Part II of the deep learning workshop we looked at the the type of material and dating of that material and see if these can predict the depth where it was found. We want to see whether the type of artefact, thus looking at the artefect/object (the story it tells) and the characteristics provided by the experts Material, Material Category, date_start, date_end, level_1_of_the_functional_classification, level_2_of_the_functional_classification, can estimate in at which depth it should be related to. We looked in particular at Metal.
  
 This way we check whether the idea of the older the deeper holds.
  
-To create the subset for objects where the level heights they from the layer they were found are known the following SQL statement was used. 
+To create the subset for metal objects where the level heights they from the layer they were found are known the following SQL statement was used. 
 
 
 ```sql
-SELECT 
-  find_number, --unique ID
-  material_category,  
-  material, 
-  feature_number,
-  start_date, 
-  end_date, 
-  level_1_of_the_functional_classification, 
-  level_2_of_the_functional_classification,
-  minimum_level_height,
-  maximum_level_height,
-  (minimum_level_height+maximum_level_height)/2 AS avg_level_height -- to calculate the average height
-FROM rokin_data
-WHERE NOT feature_number = '999'
-AND NOT minimum_level_height IS NULL
-AND NOT maximum_level_height IS NULL
-AND NOT start_date IS NULL
-AND NOT end_date IS NULL
-AND NOT material IS NULL;
-```
-The resulting dataset can be found here > [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/feature_numbers_not_999.csv)
 
-
-To create the subset for objects that are assigned to the feature_number '999', thus where the level heights are not known, the following SQL statement was used. 
-
-
-```sql
 SELECT 
   find_number, --unique ID
   material_category,  
@@ -129,9 +103,116 @@ SELECT
   minimum_level_height,
   maximum_level_height,
   (minimum_level_height+maximum_level_height)/2 AS avg_level_height -- to calculate the average height, which in this case is empty
+INTO TABLE rokin_temp 
+FROM rokin_data
+WHERE NOT feature_number = '999'
+AND material_category = 'MTL'
+AND NOT material IS NULL
+AND NOT minimum_level_height IS NULL
+AND NOT maximum_level_height IS NULL
+AND NOT start_date IS NULL
+AND NOT end_date IS NULL
+AND NOT material IS NULL
+;
+
+ALTER TABLE rokin_temp ADD COLUMN material_simplified varchar;
+UPDATE rokin_temp SET material_simplified='discard' WHERE material ='metal';
+UPDATE rokin_temp SET material_simplified='metal: aluminium' WHERE material ='metal: aluminium';
+UPDATE rokin_temp SET material_simplified='metal: brass' WHERE material ='metal: aluminium-brass';
+UPDATE rokin_temp SET material_simplified='metal: aluminium' WHERE material ='metal: aluminium-bronze';
+UPDATE rokin_temp SET material_simplified='discard' WHERE material ='metal: billon';
+UPDATE rokin_temp SET material_simplified='metal: brass' WHERE material ='metal: brass';
+UPDATE rokin_temp SET material_simplified='metal: brass' WHERE material ='metal: brass plate';
+UPDATE rokin_temp SET material_simplified='metal: bronze' WHERE material ='metal: bronze';
+UPDATE rokin_temp SET material_simplified='metal: composite' WHERE material ='metal: composite';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-aluminium';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-nickle';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-nickle-aluminium';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-nickle-zinc';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-zinc';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper alloy';
+UPDATE rokin_temp SET material_simplified='metal: gold' WHERE material ='metal: gold';
+UPDATE rokin_temp SET material_simplified='metal: iron' WHERE material ='metal: iron';
+UPDATE rokin_temp SET material_simplified='metal: iron' WHERE material ='metal: iron-copper';
+UPDATE rokin_temp SET material_simplified='metal: iron' WHERE material ='metal: iron-copper-nickle';
+UPDATE rokin_temp SET material_simplified='metal: iron' WHERE material ='metal: iron-nickle';
+UPDATE rokin_temp SET material_simplified='metal: lead' WHERE material ='metal: lead';
+UPDATE rokin_temp SET material_simplified='metal: lead' WHERE material ='metal: lead alloy';
+UPDATE rokin_temp SET material_simplified='metal: nickle' WHERE material ='metal: nickle';
+UPDATE rokin_temp SET material_simplified='metal: nickle' WHERE material ='metal: nickle-brass';
+UPDATE rokin_temp SET material_simplified='metal: nickle' WHERE material ='metal: nickle-bronze';
+UPDATE rokin_temp SET material_simplified='metal: nickle' WHERE material ='metal: sheet metal';
+UPDATE rokin_temp SET material_simplified='metal: silver' WHERE material ='metal: silver';
+UPDATE rokin_temp SET material_simplified='metal: steel' WHERE material ='metal: stainless steel';
+UPDATE rokin_temp SET material_simplified='metal: steel' WHERE material ='metal: steel';
+UPDATE rokin_temp SET material_simplified='metal: tin' WHERE material ='metal: tin';
+UPDATE rokin_temp SET material_simplified='discard' WHERE material ='metal: zamac';
+UPDATE rokin_temp SET material_simplified='metal: zinc' WHERE material ='metal: zinc';
+
+```
+The resulting dataset can be found here > [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/metal_feature_numbers_not_999.csv)
+
+
+To create the subset for objects that are assigned to the feature_number '999', thus where the level heights are not known, the following SQL statement was used. 
+
+
+```sql
+
+
+SELECT 
+  find_number, --unique ID
+  material_category,  
+  material, 
+  feature_number,
+  start_date, 
+  end_date, 
+  level_1_of_the_functional_classification, 
+  level_2_of_the_functional_classification,
+  minimum_level_height,
+  maximum_level_height,
+  (minimum_level_height+maximum_level_height)/2 AS avg_level_height -- to calculate the average height, which in this case is empty
+INTO TABLE rokin_temp 
 FROM rokin_data
 WHERE feature_number = '999'
+AND material_category = 'MTL'
 ;
+
+ALTER TABLE rokin_temp ADD COLUMN material_simplified varchar;
+UPDATE rokin_temp SET material_simplified='discard' WHERE material ='metal';
+UPDATE rokin_temp SET material_simplified='metal: aluminium' WHERE material ='metal: aluminium';
+UPDATE rokin_temp SET material_simplified='metal: brass' WHERE material ='metal: aluminium-brass';
+UPDATE rokin_temp SET material_simplified='metal: aluminium' WHERE material ='metal: aluminium-bronze';
+UPDATE rokin_temp SET material_simplified='discard' WHERE material ='metal: billon';
+UPDATE rokin_temp SET material_simplified='metal: brass' WHERE material ='metal: brass';
+UPDATE rokin_temp SET material_simplified='metal: brass' WHERE material ='metal: brass plate';
+UPDATE rokin_temp SET material_simplified='metal: bronze' WHERE material ='metal: bronze';
+UPDATE rokin_temp SET material_simplified='metal: composite' WHERE material ='metal: composite';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-aluminium';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-nickle';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-nickle-aluminium';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-nickle-zinc';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper-zinc';
+UPDATE rokin_temp SET material_simplified='metal: copper' WHERE material ='metal: copper alloy';
+UPDATE rokin_temp SET material_simplified='metal: gold' WHERE material ='metal: gold';
+UPDATE rokin_temp SET material_simplified='metal: iron' WHERE material ='metal: iron';
+UPDATE rokin_temp SET material_simplified='metal: iron' WHERE material ='metal: iron-copper';
+UPDATE rokin_temp SET material_simplified='metal: iron' WHERE material ='metal: iron-copper-nickle';
+UPDATE rokin_temp SET material_simplified='metal: iron' WHERE material ='metal: iron-nickle';
+UPDATE rokin_temp SET material_simplified='metal: lead' WHERE material ='metal: lead';
+UPDATE rokin_temp SET material_simplified='metal: lead' WHERE material ='metal: lead alloy';
+UPDATE rokin_temp SET material_simplified='metal: nickle' WHERE material ='metal: nickle';
+UPDATE rokin_temp SET material_simplified='metal: nickle' WHERE material ='metal: nickle-brass';
+UPDATE rokin_temp SET material_simplified='metal: nickle' WHERE material ='metal: nickle-bronze';
+UPDATE rokin_temp SET material_simplified='metal: nickle' WHERE material ='metal: sheet metal';
+UPDATE rokin_temp SET material_simplified='metal: silver' WHERE material ='metal: silver';
+UPDATE rokin_temp SET material_simplified='metal: steel' WHERE material ='metal: stainless steel';
+UPDATE rokin_temp SET material_simplified='metal: steel' WHERE material ='metal: steel';
+UPDATE rokin_temp SET material_simplified='metal: tin' WHERE material ='metal: tin';
+UPDATE rokin_temp SET material_simplified='discard' WHERE material ='metal: zamac';
+UPDATE rokin_temp SET material_simplified='metal: zinc' WHERE material ='metal: zinc';
+
 ```
 
-The resulting dataset can be found here > [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/feature_numbers_999.csv)
+The resulting dataset can be found here > [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/metal_feature_numbers_999.csv)
