@@ -42,8 +42,13 @@ SELECT
   ceramics_surface_treatment, --this field will be used as a characteristic to train the network on
   ceramics_decoration_technique, --this field will be used as a characteristic to train the network on
   ceramics_image_type, 
-  ceramics_mark --this field will be used as a characteristic to train the network on
+  ceramics_mark, --this field will be used as a characteristic to train the network on
+  on_website
+  
+
+INTO TABLE rokin_cer
 FROM rokin_data
+
 WHERE material_category = 'CER'
 --to exclude fields that have no value a subselection is created 
 AND NOT ceramics_reconstructed_object_height_in_mm IS NULL 
@@ -66,14 +71,85 @@ The core idea for the deep learning tutorial is that
   - ceramics_base_eve_estimated_vessel_equivalent 
   - ceramics_reconstructed_object_diameter_in_mm 
   - ceramics_reconstructed_object_height_in_mm
-  - ceramics_surface_treatment 
-  - ceramics_decoration_technique 
   - ceramics_image_type 
   - ceramics_mark
 
 Can predict whether something is categorized as "Food consumption: plate, dish, bowl" or "Food consumption: drinking" in the field **level_2_of_the_functional_classification**
 
-The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_ceramics_v21032023.csv)
+```sql
+--Since there are too much material categories we have simplyfied them in main categories, this is purely done for educational purposes
+ALTER TABLE rokin_cer ADD COLUMN material_simplified varchar;
+UPDATE rokin_cer SET material_simplified='faience' WHERE material ='faience';
+UPDATE rokin_cer SET material_simplified='faience' WHERE material ='faience: French';
+UPDATE rokin_cer SET material_simplified='faience' WHERE material ='faience: Holland';
+UPDATE rokin_cer SET material_simplified='faience' WHERE material ='faience: Italian';
+UPDATE rokin_cer SET material_simplified='gold lustre' WHERE material ='gold lustre';
+UPDATE rokin_cer SET material_simplified='greyware' WHERE material ='greyware: hand-built';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: black';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: coloured';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: creamware';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: pearlware';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: red';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: rewdware';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: scratchware';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: stoneware';
+UPDATE rokin_cer SET material_simplified='industrial ware' WHERE material ='industrial ware: white';
+UPDATE rokin_cer SET material_simplified='maiolica' WHERE material ='maiolica';
+UPDATE rokin_cer SET material_simplified='maiolica' WHERE material ='maiolica: Italian';
+UPDATE rokin_cer SET material_simplified='maiolica' WHERE material ='maiolica: Spanish';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: capucin';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: China';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: Europe';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: famille rose';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: famille verte';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: Germany';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: Japan';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: KhangXi';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: transitional';
+UPDATE rokin_cer SET material_simplified='porcelain' WHERE material ='porcelain: WanLi';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware, slip';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware, slip: Lower Rhine region';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware, slip: sgraffito';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware, slip: slip-cup decoration';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware, slip: Werra';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware: Frankfurt tradition';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware: French';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware: Iberian';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware: slip applied by brush';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware: unglazed';
+UPDATE rokin_cer SET material_simplified='redware' WHERE material ='redware: western Germany';
+UPDATE rokin_cer SET material_simplified='stoneware' WHERE material ='stoneware';
+UPDATE rokin_cer SET material_simplified='stoneware' WHERE material ='stoneware: Aachen';
+UPDATE rokin_cer SET material_simplified='stoneware' WHERE material ='stoneware: Cologne';
+UPDATE rokin_cer SET material_simplified='stoneware' WHERE material ='stoneware: Frechen';
+UPDATE rokin_cer SET material_simplified='stoneware' WHERE material ='stoneware: Langerwehe';
+UPDATE rokin_cer SET material_simplified='stoneware' WHERE material ='stoneware: Raeren';
+UPDATE rokin_cer SET material_simplified='stoneware' WHERE material ='stoneware: Siegburg';
+UPDATE rokin_cer SET material_simplified='stoneware' WHERE material ='stoneware: Westerwald';
+UPDATE rokin_cer SET material_simplified='whiteware' WHERE material ='whiteware';
+UPDATE rokin_cer SET material_simplified='whiteware' WHERE material ='whiteware: Frankfurt tradition';
+UPDATE rokin_cer SET material_simplified='whiteware' WHERE material ='whiteware: Germany';
+UPDATE rokin_cer SET material_simplified='whiteware' WHERE material ='whiteware: Hafner';
+UPDATE rokin_cer SET material_simplified='whiteware' WHERE material ='whiteware: Weser region';
+
+--added url to website making it nice to be able to click on the individual objects that are present at the website of the project
+ALTER TABLE rokin_cer ADD COLUMN url varchar;
+UPDATE rokin_cer SET url = concat('https://belowthesurface.amsterdam/en/vondst/',find_number) WHERE on_website =1;
+--Finally some of the column names have been renamed 
+ALTER TABLE rokin_cer
+RENAME COLUMN level_2_of_the_functional_classification TO l2_class; 
+
+ALTER TABLE rokin_cer
+RENAME COLUMN ceramics_reconstructed_object_diameter_in_mm TO object_diameter; 
+
+ALTER TABLE rokin_cer
+RENAME COLUMN ceramics_reconstructed_object_height_in_mm TO object_height; 
+
+```
+
+
+The subset can be found [here](https://github.com/esciencecenter-digital-skills/deep-learning-archaeology/tree/main/data/subset_ceramics_v30032023.csv)
 
 
 # Part II
