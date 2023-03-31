@@ -136,7 +136,8 @@ UPDATE rokin_cer SET material_simplified='whiteware' WHERE material ='whiteware:
 --added url to website making it nice to be able to click on the individual objects that are present at the website of the project
 ALTER TABLE rokin_cer ADD COLUMN url varchar;
 UPDATE rokin_cer SET url = concat('https://belowthesurface.amsterdam/en/vondst/',find_number) WHERE on_website =1;
---Finally some of the column names have been renamed 
+
+--Finally some of the column names have been renamed to avoid that the participants need to type a lot during the workshop 
 ALTER TABLE rokin_cer
 RENAME COLUMN level_2_of_the_functional_classification TO l2_class; 
 
